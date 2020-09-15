@@ -59,3 +59,5 @@ RPC 2.0 API MICROSERVICE BASED ON [IJSON](https://github.com/lega911/ijson)
     - See `scratches` folder for make requests
     
 ### <a id="documentation"></a>DOCUMENTATION:
+ - Generate docs `composer run-script docs`
+ - Open `apidoc-generated/index.html` in root dir

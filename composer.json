@@ -1,7 +1,8 @@
 {
-    "name": "laravel/laravel",
+    "version": "1.0.0",
+    "name": "kakadu-dev/laravel-microservice-template",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "Kakadu larave microservice template",
     "keywords": [
         "framework",
         "laravel"
@@ -16,6 +17,7 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "6.5",
         "kakadu-dev/php-ijson-microservices": "^1.0.1",
+        "matthew-p/docker-server": "^5.0.0",
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.0"
     },
@@ -51,6 +53,9 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
+        "pre-install-cmd": [
+            "@init_env"
+        ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
@@ -60,6 +65,12 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "docs": [
+            "apidoc -i ./app -o ./apidoc-generated"
+        ],
+        "init_env": [
+            "php init_env"
         ]
     }
 }

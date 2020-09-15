@@ -77,7 +77,7 @@ class Project
         $this->panelAlias              = config('app.panel_alias');
         $this->isDisabledControlPanel  = config('app.control_panel_disable') === 'yes';
         $this->isDisabledAuthorization = config('app.authorization_disable') === 'yes';
-        $this->isDisabledSeeder        = config('app.authorization_disable') === 'yes';
+        $this->isDisabledSeeder        = config('app.database_seeder_disable') === 'yes';
     }
 
     /**
