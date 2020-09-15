@@ -56,7 +56,7 @@ class Seeder extends Command
 
         foreach ($this->getPaths() as $path) {
             $this->info($path);
-            DB::statement(file_get_contents($path));
+            DB::unprepared(file_get_contents($path));
         }
 
         $this->info('seeding completed!');
@@ -78,7 +78,7 @@ class Seeder extends Command
     }
 
     /**
-     * there are we sort slq file with relation order
+     * you should sort slq file with relation order
      *
      * @return array
      */
@@ -86,10 +86,9 @@ class Seeder extends Command
     {
         $filesPath = [];
         foreach ($this->getAllSqlPath() as $path) {
-            if (strpos($path, 'file.sql') !== false) {
-                $filesPath[0] = $path;
-            }
-
+//            if (strpos($path, 'file.sql') !== false) {
+//                $filesPath[0] = $path;
+//            }
         }
 
         ksort($filesPath);
