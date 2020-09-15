@@ -1,61 +1,67 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+Geo
+-------------------
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+RPC 2.0 API MICROSERVICE BASED ON [IJSON](https://github.com/lega911/ijson)
 
-## About Laravel
+## MENU
+ - [ENVIRONMENTS](#environments)
+ - [ENVIRONMENTS WITHOUT CONTROL PANEL](#environments-without-control-panel)
+ - [RUN WITH CODE](#run-with-code)
+ - [RUN WITH DOCKER](#run-with-docker)
+ - [DOCUMENTATION](#documentation)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+--------------
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### <a id="environments"></a>ENVIRONMENTS:
+ - `IJSON_HOST` - Invert json host and port (with protocol). Default: `http://localhost:8001`
+ - `PROJECT_ALIAS` - panel, apple, etc..
+ - `APP_ENV` - dev, prod.
+ - `PANEL_ALIAS` - Alias for control-panel. Default: `panel`
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### <a id="environments-without-control-panel"></a>ENVIRONMENTS without control-panel:
+ - `CONTROL_PANEL_DISABLE` - Disable control panel microservice config obtain. Default: no
+ - `AUTHORIZATION_DISABLE` - Disable authorization microservice import rules. Default: yes
+ - `DATABASE_SEEDER_DISABLE` - Disable auto seeding data. Default: no
+ - `MYSQL_HOST` - Mysql host.
+ - `MYSQL_PORT` - Mysql port.
+ - `MYSQL_DATABASE` - Mysql database.
+ - `MYSQL_USER` - Mysql user.
+ - `MYSQL_PASSWORD` - Mysql password.
 
-## Learning Laravel
+### <a id="run-with-docker"></a>RUN WITH DOCKER:
+```bash
+docker pull docker.pkg.github.com/kakadu-dev/symfony-microservice-geo/geo:1.0.0-staging
+docker run --env IJSON_HOST=http://host.docker.internal:8001 --env PROJECT_ALIAS=example --env APP_ENV=dev docker.pkg.github.com/kakadu-dev/symfony-microservice-geo/geo:1.0.0-staging
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### <a id="run-with-code"></a>RUN WITH CODE:
+ - Get code:
+    - `git clone https://github.com/kakadu-dev/symfony-microservice-geo.git`
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    - Run docker container `ijson` and `mysql` in `docker-compose.yml`
+      ```bash
+        docker-compose run mysql
+        docker-compose run ijson
+      ```
+      or
+      ```bash
+        docker-compose up
+      ```
+    - Install dependencies `composer install`
+    - Create configuration:
+        ```bash
+            ./bin/console microservice:configure
+        ```
+        or for manual configuration add the `manual` key
+        ```bash
+            ./bin/console microservice:configure manual
+        ```
+    - Create database `php bin/console migrations:db`
+    - Make migrations `php bin/console doctrine:migrations:migrate --no-interaction`
+    - Set default data for database `php bin/console microservice:seed`
+    - Run microservice `php bin/console microservice:start`
+    - See `scratches` folder for make requests
+    
+### <a id="documentation"></a>DOCUMENTATION:
+ - Generate docs `composer run-script docs` or [OPEN COMPILED DOCS](https://microservices-docs.kakadu.bz/geo/index.html)
+ - Open `apidoc-generated/index.html` in root dir

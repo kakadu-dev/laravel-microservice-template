@@ -1,0 +1,13 @@
+# Example request
+POST {{host}}/panel:template
+Content-Type: application/json
+
+{
+    "id": 1,
+    "method": "demo.hello",
+    "params": {
+        "panelName": "template"
+    }
+}
+
+###

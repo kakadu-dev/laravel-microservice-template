@@ -3,6 +3,21 @@
 return [
 
     /*
+     * Configuration for microservice
+     */
+    'service_name' => env('SERVICE_NAME', 'article'),
+
+    'ijson_host' => env('IJSON_HOST', null),
+
+    'panel_alias' => env('PANEL_ALIAS', 'panel'),
+
+    'control_panel_disable' => env('CONTROL_PANEL_DISABLE', 'no'),
+
+    'authorization_disable' => env('AUTHORIZATION_DISABLE', 'yes'),
+
+    'database_seeder_disable' => env('DATABASE_SEEDER_DISABLE', 'no'),
+
+    /*
     |--------------------------------------------------------------------------
     | Application Name
     |--------------------------------------------------------------------------
@@ -13,7 +28,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'panel'),
 
     /*
     |--------------------------------------------------------------------------
@@ -25,8 +40,9 @@ return [
     | services the application utilizes. Set this in your ".env" file.
     |
     */
+    'test'      => env('TEST', 'xxx'),
 
-    'env' => env('APP_ENV', 'production'),
+    'env' => env('APP_ENV', 'development'),
 
     /*
     |--------------------------------------------------------------------------
@@ -190,42 +206,42 @@ return [
 
     'aliases' => [
 
-        'App' => Illuminate\Support\Facades\App::class,
-        'Arr' => Illuminate\Support\Arr::class,
-        'Artisan' => Illuminate\Support\Facades\Artisan::class,
-        'Auth' => Illuminate\Support\Facades\Auth::class,
-        'Blade' => Illuminate\Support\Facades\Blade::class,
-        'Broadcast' => Illuminate\Support\Facades\Broadcast::class,
-        'Bus' => Illuminate\Support\Facades\Bus::class,
-        'Cache' => Illuminate\Support\Facades\Cache::class,
-        'Config' => Illuminate\Support\Facades\Config::class,
-        'Cookie' => Illuminate\Support\Facades\Cookie::class,
-        'Crypt' => Illuminate\Support\Facades\Crypt::class,
-        'DB' => Illuminate\Support\Facades\DB::class,
-        'Eloquent' => Illuminate\Database\Eloquent\Model::class,
-        'Event' => Illuminate\Support\Facades\Event::class,
-        'File' => Illuminate\Support\Facades\File::class,
-        'Gate' => Illuminate\Support\Facades\Gate::class,
-        'Hash' => Illuminate\Support\Facades\Hash::class,
-        'Http' => Illuminate\Support\Facades\Http::class,
-        'Lang' => Illuminate\Support\Facades\Lang::class,
-        'Log' => Illuminate\Support\Facades\Log::class,
-        'Mail' => Illuminate\Support\Facades\Mail::class,
+        'App'          => Illuminate\Support\Facades\App::class,
+        'Arr'          => Illuminate\Support\Arr::class,
+        'Artisan'      => Illuminate\Support\Facades\Artisan::class,
+        'Auth'         => Illuminate\Support\Facades\Auth::class,
+        'Blade'        => Illuminate\Support\Facades\Blade::class,
+        'Broadcast'    => Illuminate\Support\Facades\Broadcast::class,
+        'Bus'          => Illuminate\Support\Facades\Bus::class,
+        'Cache'        => Illuminate\Support\Facades\Cache::class,
+        'Config'       => Illuminate\Support\Facades\Config::class,
+        'Cookie'       => Illuminate\Support\Facades\Cookie::class,
+        'Crypt'        => Illuminate\Support\Facades\Crypt::class,
+        'DB'           => Illuminate\Support\Facades\DB::class,
+        'Eloquent'     => Illuminate\Database\Eloquent\Model::class,
+        'Event'        => Illuminate\Support\Facades\Event::class,
+        'File'         => Illuminate\Support\Facades\File::class,
+        'Gate'         => Illuminate\Support\Facades\Gate::class,
+        'Hash'         => Illuminate\Support\Facades\Hash::class,
+        'Http'         => Illuminate\Support\Facades\Http::class,
+        'Lang'         => Illuminate\Support\Facades\Lang::class,
+        'Log'          => Illuminate\Support\Facades\Log::class,
+        'Mail'         => Illuminate\Support\Facades\Mail::class,
         'Notification' => Illuminate\Support\Facades\Notification::class,
-        'Password' => Illuminate\Support\Facades\Password::class,
-        'Queue' => Illuminate\Support\Facades\Queue::class,
-        'Redirect' => Illuminate\Support\Facades\Redirect::class,
-        'Redis' => Illuminate\Support\Facades\Redis::class,
-        'Request' => Illuminate\Support\Facades\Request::class,
-        'Response' => Illuminate\Support\Facades\Response::class,
-        'Route' => Illuminate\Support\Facades\Route::class,
-        'Schema' => Illuminate\Support\Facades\Schema::class,
-        'Session' => Illuminate\Support\Facades\Session::class,
-        'Storage' => Illuminate\Support\Facades\Storage::class,
-        'Str' => Illuminate\Support\Str::class,
-        'URL' => Illuminate\Support\Facades\URL::class,
-        'Validator' => Illuminate\Support\Facades\Validator::class,
-        'View' => Illuminate\Support\Facades\View::class,
+        'Password'     => Illuminate\Support\Facades\Password::class,
+        'Queue'        => Illuminate\Support\Facades\Queue::class,
+        'Redirect'     => Illuminate\Support\Facades\Redirect::class,
+        'Redis'        => Illuminate\Support\Facades\Redis::class,
+        'Request'      => Illuminate\Support\Facades\Request::class,
+        'Response'     => Illuminate\Support\Facades\Response::class,
+        'Route'        => Illuminate\Support\Facades\Route::class,
+        'Schema'       => Illuminate\Support\Facades\Schema::class,
+        'Session'      => Illuminate\Support\Facades\Session::class,
+        'Storage'      => Illuminate\Support\Facades\Storage::class,
+        'Str'          => Illuminate\Support\Str::class,
+        'URL'          => Illuminate\Support\Facades\URL::class,
+        'Validator'    => Illuminate\Support\Facades\Validator::class,
+        'View'         => Illuminate\Support\Facades\View::class,
 
     ],
 
