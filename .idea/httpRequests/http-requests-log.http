@@ -295,6 +295,32 @@ Content-Type: application/json
     }
 }
 
+###
+
+POST http://127.0.0.1:8001/panel:template
+Content-Type: application/json
+
+{
+    "id": 1,
+    "method": "demo.hello",
+    "params": {
+        "panelName": "template"
+    }
+}
+
+###
+
+POST http://127.0.0.1:8001/panel:template
+Content-Type: application/json
+
+{
+    "id": 1,
+    "method": "demo.hello",
+    "params": {
+        "panelName": "template"
+    }
+}
+
 <> 2020-09-11T031308.200.txt
 
 ###
